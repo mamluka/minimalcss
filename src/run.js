@@ -427,6 +427,7 @@ const minimalcss = async (options) => {
   const enableServiceWorkers = options.enableServiceWorkers || false;
   const puppeteerArgs = options.puppeteerArgs || [];
   const whitelist = options.whitelist || [];
+  const forcedCssUrls = options.forcedCssUrls || [];
   const whitelistRules = whitelist.map((rule) => new RegExp(rule));
 
   if (!enableServiceWorkers) {
@@ -635,6 +636,9 @@ const minimalcss = async (options) => {
       allUsedHrefs.push(href);
     }
   });
+  
+  AllUsedHrefs.push(...forcedCssUrls)
+  
   const allCombinedAst = {
     type: 'StyleSheet',
     loc: null,
