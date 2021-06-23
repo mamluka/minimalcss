@@ -637,7 +637,7 @@ const minimalcss = async (options) => {
     }
   });
   
-  AllUsedHrefs.push(...forcedCssUrls)
+  allUsedHrefs.push(...forcedCssUrls)
   
   const allCombinedAst = {
     type: 'StyleSheet',
